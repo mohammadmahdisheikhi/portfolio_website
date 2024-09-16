@@ -1,0 +1,7 @@
+.post-thumb img {
+    display: block;
+    width: 70%;
+    margin: 24px auto;
+    max-width: 100%;
+    height: auto;
+}

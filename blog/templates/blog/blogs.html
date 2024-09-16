@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>وبلاگ‌ها</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- Custom Styling -->
+  <link href="{% static 'css/blogs.css' %}" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body dir="rtl" style="font-family: 'Vazir', sans-serif !important; text-align:right !important;">
+  <!--/ Nav Start /-->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll" href="/">محمّدمهدی شیخی</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll active" href="/">خانه</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="/">درباره من</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="/">خدمات من</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="/">نمونه کارها</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="/">وبلاگ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="/">ارتباط</a>
+          </li>
+          <!-- Add other navigation items here -->
+          <!--<li class="nav-item">
+            <a class="nav-link js-scroll" href="#indexeng">English</a>
+          </li> -->       
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--/ Nav End /-->
+
+  <!--/ Intro Skew Start /-->
+  <div class="intro intro-single route bg-image" style="background-image: url({% static 'img/overlay-bg.jpg' %})">
+    <div class="overlay-mf"></div>
+    <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="intro-title mb-4">وبلاگ‌های من</h2>
+          <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="/">خانه</a>
+            </li>
+            <li class="breadcrumb-item active">وبلاگ‌ها</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Intro Skew End /-->
+
+  <!--/ Section Blogs Start /-->
+  <section id="blog" class="blog-mf sect-pt4 route">
+    <div class="container">
+      <div class="row">
+        {% for blog in blogs %}
+        <div class="col-md-4">
+          <div class="blog-box">
+            <a href="{% url 'blog' blog.id %}">
+              <div class="blog-img">
+                {% if blog.image %}
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid">
+                {% else %}
+                <img src="{% static 'img/default-image.jpg' %}" alt="Default Image" class="img-fluid">
+                {% endif %}
+              </div>
+              <div class="blog-content">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h2 class="b-title" style="margin: 16px auto;">{{ blog.title }}</h2>
+                    <div class="b-more">
+                      <span class="b-date">{{ blog.created_at|date:"d M Y" }}</span>
+                      <p class="b-snippet">{{ blog.content|truncatewords:15 }}</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="b-like">
+                      <!-- Add any additional icons or links here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--/ Section Blogs End /-->
+
+  <!--/ Footer Start /-->
+  <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url({% static 'img/overlay-bg.jpg' %}); display: none !important;">
+    <div class="overlay-mf"></div>
+    <footer>
+      <div class="container">
+        <!-- Footer content here -->
+      </div>
+    </footer>
+  </section>
+  <!--/ Footer End /-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/popper/popper.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/counterup/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'lib/counterup/jquery.counterup.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+  <script src="{% static 'lib/typed/typed.min.js' %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'contactform/contactform.js' %}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

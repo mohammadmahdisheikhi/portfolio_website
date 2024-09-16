@@ -1,0 +1,82 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyo
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.mo
+*.swp
+*.sqlite3
+db.sqlite3
+
+# If you use local environment files like .env
+.env
+
+# Media and static files
+/static/
+/media/
+/staticfiles/
+
+# If you use Django Compressor to manage static files
+COMPRESS_CACHE/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Translations
+*.po
+
+# Django migrations
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Ignore IDE / Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore JetBrains specific files
+*.iml
+*.ipr
+*.iws
+
+# Windows specific files
+Thumbs.db
+
+# Other common files to ignore
+*.lock
+yarn.lock
+npm-debug.log
+.pdm.toml
+.pdm.lock
