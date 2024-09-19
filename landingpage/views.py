@@ -1,11 +1,12 @@
 from django.shortcuts import get_object_or_404, render
 from blog.models import Blogs
 from works.models import Works
-from .models import Owner
+from .models import Owner, Skill
 
 def index(request, work_id=None, blog_id=None, *args, **kwargs):
     works = Works.objects.all()
     owner = Owner.objects.first()  # Retrieve the first Owner instance
+    skills = Skill.objects.all()
 
     # Handle blog retrieval
     if blog_id:
@@ -29,7 +30,8 @@ def index(request, work_id=None, blog_id=None, *args, **kwargs):
         "owner": owner,
         "blog": blog,
         "blogs": blogs,
-        "testimonials": testimonials
+        "testimonials": testimonials,
+        "skills": skills
     })
 
 

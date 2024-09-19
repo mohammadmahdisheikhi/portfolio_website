@@ -13,7 +13,6 @@ class Owner(models.Model):
     phone_number = models.CharField(max_length=20)
     role = models.CharField(max_length=50, null=True, blank=True)
     about = models.TextField(max_length=500)
-    skills = models.TextField(null=True, blank=True)
     service1 = models.CharField(max_length=50, null=True, blank=True)
     service2 = models.CharField(max_length=50, null=True, blank=True)
     service3 = models.CharField(max_length=50, null=True, blank=True)
@@ -31,3 +30,11 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"Testimonial by {self.teller}"
+
+
+class Skill(models.Model):
+    name = models.CharField(max_length=100)
+    percent = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.name}"

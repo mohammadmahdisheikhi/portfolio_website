@@ -117,11 +117,14 @@
                 </div>
                 <div class="skill-mf">
                   <p class="title-s">مهارت‌ها</p>
-                  <span>Photoshop</span> <span class="pull-right">80%</span>
+                  {% for skill in skills %}
+                  <span>{{ skill.name }}</span> <span class="pull-right">{{ skill.percent }}%</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
-                      aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ skill.percent }}%;" aria-valuenow="{{ skill.percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
+                  {% endfor %}
+                  
+                  <!--
                   <span>Illustrator</span> <span class="pull-right">60%</span>
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
@@ -192,6 +195,7 @@
                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
                       aria-valuemax="100"></div>
                   </div>
+                -->
                 </div>
               </div>
               <div class="col-md-6">
